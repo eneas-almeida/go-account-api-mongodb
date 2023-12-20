@@ -1,0 +1,14 @@
+version: '3'
+services:
+    mongodb:
+        container_name: go-api-mongodb
+        image: mongo:latest
+        restart: always
+        ports:
+            - 27037:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: customers
+            MONGO_INITDB_ROOT_PASSWORD: customers
+        volumes:
+            - ./.docker/mongodb/entrypoints/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+            - ./.docker/mongodb/data:/data/db
