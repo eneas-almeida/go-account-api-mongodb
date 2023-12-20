@@ -31,3 +31,7 @@ func (h *AccountsHandler) Create(ctx *fiber.Ctx) error {
 		"data":    account,
 	})
 }
+
+func (h *AccountsHandler) FindOneById(ctx *fiber.Ctx) error {
+	return nil
+}
