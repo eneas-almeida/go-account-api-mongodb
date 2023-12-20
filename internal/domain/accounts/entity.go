@@ -7,12 +7,12 @@ import (
 )
 
 type Account struct {
-	ID        string `json:"id,omitempty"`
-	Name      string `json:"name,omitempty"`
-	Email     string `json:"email,omitempty"`
-	Password  string `json:"password,omitempty"`
-	CreatedAt string `json:"created_at,omitempty"`
-	UpdatedAt string `json:"updated_at,omitempty"`
+	ID        string    `json:"id,omitempty"`
+	Name      string    `json:"name,omitempty"`
+	Email     string    `json:"email,omitempty"`
+	Password  string    `json:"password,omitempty"`
+	CreatedAt time.Time `json:"created_at,omitempty"`
+	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }
 
 func NewAccount(id string, name string, email string, password string) (*Account, error) {
@@ -35,8 +35,8 @@ func NewAccount(id string, name string, email string, password string) (*Account
 }
 
 func (a *Account) prepare() {
-	a.CreatedAt = time.Now().Format("2006-01-02 15:04:05")
-	a.UpdatedAt = time.Now().Format("2006-01-02 15:04:05")
+	a.CreatedAt = time.Now()
+	a.UpdatedAt = time.Now()
 }
 
 func (a *Account) isValid() error {

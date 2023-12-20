@@ -90,6 +90,25 @@ include_files:
 fresh
 ```
 
+### Configurações para o debug
+
+```bash
+# Cria o arquivo .vscode/launch.json
+{
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}",
+            "env": {},
+            "args": []
+        }
+    ]
+}
+```
+
 <div>
   <img align="left" src="https://imgur.com/k8HFd0F.png" width=35 alt="Profile"/>
   <sub>Made with 💙 by <a href="https://github.com/venzel">Enéas Almeida</a></sub>

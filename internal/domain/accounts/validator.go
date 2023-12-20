@@ -1,17 +1,17 @@
 package accounts
 
-func Id(email string) bool {
-	return true
+func Id(value string) bool {
+	return value != ""
 }
 
-func Name(email string) bool {
-	return true
+func Name(value string) bool {
+	return value != ""
 }
 
-func Email(email string) bool {
-	return true
+func Email(value string) bool {
+	return value != ""
 }
 
-func Password(email string) bool {
-	return true
+func Password(value string) bool {
+	return value != ""
 }

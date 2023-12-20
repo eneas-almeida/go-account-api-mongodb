@@ -8,21 +8,26 @@ import (
 )
 
 type AccountsHandler struct {
-	UseCases accounts.UseCasesInterface
+	UseCases accounts.UseCaseInterface
 }
 
-func (h *AccountsHandler) CreateHandle(ctx *fiber.Ctx) error {
+func (h *AccountsHandler) Create(ctx *fiber.Ctx) error {
 	body := []byte(ctx.Body())
 
 	var dto accounts.InputAccountDto
 
 	json.Unmarshal(body, &dto)
 
-	_, err := h.UseCases.CreateExecute(&dto)
+	account, err := h.UseCases.Create(&dto)
 
 	if err != nil {
-		return ctx.Status(400).JSON(err)
+		return ctx.Status(400).JSON(fiber.Map{
+			"message": err.Error(),
+		})
 	}
 
-	return nil
+	return ctx.Status(201).JSON(fiber.Map{
+		"message": "Account created successfully",
+		"data":    account,
+	})
 }
