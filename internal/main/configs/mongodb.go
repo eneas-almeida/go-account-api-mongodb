@@ -25,14 +25,14 @@ func GetMongoDbConnection() (*mongo.Client, error) {
 	return client, nil
 }
 
-func GetMongoDbCollection(dbName string, collectionName string) (*mongo.Collection, error) {
+func GetMongoDbCollection(database string, collection string) (*mongo.Collection, error) {
 	client, err := GetMongoDbConnection()
 
 	if err != nil {
 		return nil, err
 	}
 
-	collection := client.Database(dbName).Collection(collectionName)
+	schema := client.Database(database).Collection(collection)
 
-	return collection, nil
+	return schema, nil
 }

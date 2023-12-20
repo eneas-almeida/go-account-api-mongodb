@@ -19,5 +19,5 @@ type RepositoryInterface interface {
 }
 
 type UseCasesInterface interface {
-	Create(d *InputAccountDto) (*OutputAccountDto, error)
+	CreateExecute(d *InputAccountDto) (*OutputAccountDto, error)
 }

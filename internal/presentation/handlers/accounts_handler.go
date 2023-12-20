@@ -11,14 +11,14 @@ type AccountsHandler struct {
 	UseCases accounts.UseCasesInterface
 }
 
-func (h *AccountsHandler) CreateAccount(ctx *fiber.Ctx) error {
+func (h *AccountsHandler) CreateHandle(ctx *fiber.Ctx) error {
 	body := []byte(ctx.Body())
 
 	var dto accounts.InputAccountDto
 
 	json.Unmarshal(body, &dto)
 
-	_, err := h.UseCases.Create(&dto)
+	_, err := h.UseCases.CreateExecute(&dto)
 
 	if err != nil {
 		return ctx.Status(400).JSON(err)

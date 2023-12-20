@@ -7,7 +7,7 @@ import (
 )
 
 func Setup(app *fiber.App) {
-	accountsHandler := factories.MakeAccounts()
+	accountsFactory := factories.MakeAccounts()
 
-	app.Post("/accounts", accountsHandler.CreateAccount)
+	app.Post("/accounts", accountsFactory.CreateHandle)
 }
