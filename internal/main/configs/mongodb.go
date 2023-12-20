@@ -9,8 +9,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
-func GetMongoDbConnection() (*mongo.Client, error) {
-	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://localhost:27037"))
+func GetMongoDbConnection(database string, collection string) (*mongo.Collection, error) {
+	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://customers:customers@localhost:27037/customers"))
 
 	if err != nil {
 		log.Fatal(err)
@@ -21,12 +21,6 @@ func GetMongoDbConnection() (*mongo.Client, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	return client, nil
-}
-
-func GetMongoDbCollection(database string, collection string) (*mongo.Collection, error) {
-	client, err := GetMongoDbConnection()
 
 	if err != nil {
 		return nil, err

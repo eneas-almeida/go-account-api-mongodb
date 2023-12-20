@@ -1,6 +1,6 @@
 package accounts
 
 type RepositoryInterface interface {
-	Create(a *Account) error
+	Create(account *Account) (string, error)
 	FindById(id string) (*Account, error)
 }

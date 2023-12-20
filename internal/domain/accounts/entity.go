@@ -4,10 +4,12 @@ import (
 	"errors"
 	"mongoapi/internal/domain/shared"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type Account struct {
-	ID        string    `json:"id,omitempty"`
+	ID        uuid.UUID `json:"id,omitempty"`
 	Name      string    `json:"name,omitempty"`
 	Email     string    `json:"email,omitempty"`
 	Password  string    `json:"password,omitempty"`
@@ -15,9 +17,8 @@ type Account struct {
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }
 
-func NewAccount(id string, name string, email string, password string) (*Account, error) {
+func NewAccount(name string, email string, password string) (*Account, error) {
 	account := &Account{
-		ID:       id,
 		Name:     name,
 		Email:    email,
 		Password: password,
@@ -35,16 +36,13 @@ func NewAccount(id string, name string, email string, password string) (*Account
 }
 
 func (a *Account) prepare() {
+	a.ID = uuid.New()
 	a.CreatedAt = time.Now()
 	a.UpdatedAt = time.Now()
 }
 
 func (a *Account) isValid() error {
 	notification := shared.CreateNotification("account")
-
-	if !Id(a.ID) {
-		notification.AddError("Id is invalid")
-	}
 
 	if !Name(a.Name) {
 		notification.AddError("Name is invalid")

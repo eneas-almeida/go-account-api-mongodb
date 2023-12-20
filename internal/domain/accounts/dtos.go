@@ -1,6 +1,8 @@
 package accounts
 
-import "time"
+import (
+	"time"
+)
 
 type InputAccountDto struct {
 	ID       string

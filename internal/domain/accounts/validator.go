@@ -1,9 +1,5 @@
 package accounts
 
-func Id(value string) bool {
-	return value != ""
-}
-
 func Name(value string) bool {
 	return value != ""
 }
