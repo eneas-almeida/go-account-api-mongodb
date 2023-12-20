@@ -7,5 +7,6 @@ type AccountsUseCase struct {
 }
 
 func (u *AccountsUseCase) Create(d *accounts.InputAccountDto) (*accounts.OutputAccountDto, error) {
+	println("AccountsUseCase.Create showwww!!!!")
 	return nil, nil
 }

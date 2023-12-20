@@ -28,10 +28,10 @@ A escolha do padrão **Clean Architecture** para um projeto de software pode tra
 ## FAQ de comandos rápidos
 
 ```bash
-# Baixa um pacote especifico
+# Baixa um pacote específico
 go get <nome_do_pacote>
 
-# Importa todos sos pacotes
+# Importa todos os pacotes
 go mod tidy
 
 # Verifica as variáveis de ambiente do Go

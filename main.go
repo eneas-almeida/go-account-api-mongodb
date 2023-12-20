@@ -1,31 +1,15 @@
 package main
 
 import (
-	"mongoapi/internal/main/factories"
+	"mongoapi/internal/main/routes"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
-	var accountsFactory factories.AccountsFactory
+	app := fiber.New()
 
-	accountsFactory.MakeAccounts()
+	routes.Setup(app)
 
-	// app := fiber.New()
-
-	// app.Get("/login/:id", func(c *fiber.Ctx) error {
-	// 	id := c.Params("id")
-
-	// 	_, err := configs.GetMongoDbConnection()
-
-	// 	if err != nil {
-	// 		log.Fatal("error")
-	// 	}
-
-	// 	return c.SendString("idxx=" + id)
-	// })
-
-	// app.Get("/", func(c *fiber.Ctx) error {
-	// 	return c.SendString("Hello, World 👋!")
-	// })
-
-	// app.Listen(":3000")
+	app.Listen(":3000")
 }
