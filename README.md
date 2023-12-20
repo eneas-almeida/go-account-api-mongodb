@@ -1,4 +1,45 @@
-# Go API MongoDB
+# Go Account API MongoDB
+
+> **Account API** é um microserviço que utiliza um padrão arquitetural Clean Architecture.
+
+## Stack
+
+-   Golang;
+-   Docker (MongoDB);
+
+## Padrão arquitetural (Clean Architecture)
+
+<p align="center">
+    <img src="./media/images/ca.png" />
+</>
+
+A escolha do padrão **Clean Architecture** para um projeto de software pode trazer diversos benefícios, mas é importante ressaltar que a escolha de uma arquitetura depende muito das necessidades específicas do projeto, das características da equipe de desenvolvimento e das metas a serem alcançadas.
+
+**Principais vantagens:**
+
+-   Separação de responsabilidades;
+-   Independência de frameworks e bibliotecas;
+-   Testabilidade;
+-   Adaptabilidade a mudanças;
+-   Escalabilidade;
+-   Longevidade do software;
+-   Compreensão e colaboração.
+
+## FAQ de comandos rápidos
+
+```bash
+# Baixa um pacote especifico
+go get <nome_do_pacote>
+
+# Importa todos sos pacotes
+go mod tidy
+
+# Verifica as variáveis de ambiente do Go
+go env
+
+# Instala um pacote executável dentro da pasta bin
+go install <nome_do_pacote>
+```
 
 ## Pacotes utilizados
 
@@ -7,7 +48,7 @@
 -   go get -u github.com/cosmtrek/air
 -   go get github.com/pilu/fresh
 
-## Como utilizar o reaload com o fresh
+## Como utilizar o reload com o fresh
 
 ```bash
 # Instala o executável
@@ -48,3 +89,8 @@ include_files:
 # Apenas execute com o comando abaixo, irá carregar o arquivo de conf
 fresh
 ```
+
+<div>
+  <img align="left" src="https://imgur.com/k8HFd0F.png" width=35 alt="Profile"/>
+  <sub>Made with 💙 by <a href="https://github.com/venzel">Enéas Almeida</a></sub>
+</div>
