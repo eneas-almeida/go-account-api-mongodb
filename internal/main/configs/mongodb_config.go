@@ -6,48 +6,53 @@ import (
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
 type MongoConfig struct {
+	Client         *mongo.Client
 	Uri            string
 	DatabaseName   string
 	CollectionName string
 }
 
 func NewMongoConfig(uri, database, collection string) (*MongoConfig, error) {
-	return &MongoConfig{
-		Uri:            uri,
-		DatabaseName:   database,
-		CollectionName: collection,
-	}, nil
-}
+	options := options.Client().ApplyURI(uri).SetMaxPoolSize(6)
 
-func (cfg *MongoConfig) client() (*mongo.Client, error) {
-	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI(cfg.Uri))
+	client, err := mongo.Connect(context.Background(), options)
 
 	if err != nil {
 		return nil, err
 	}
 
-	return client, nil
+	return &MongoConfig{
+		Uri:            uri,
+		Client:         client,
+		DatabaseName:   database,
+		CollectionName: collection,
+	}, nil
 }
 
-func (cfg *MongoConfig) Collection() *mongo.Collection {
-	client, err := cfg.client()
+func (c *MongoConfig) setConnection() {
+	err := c.Client.Ping(context.Background(), readpref.Primary())
 
 	if err != nil {
-		log.Fatal("Error connecting to MongoDB:", err)
-	}
+		client, err := mongo.Connect(context.Background(), options.Client().ApplyURI(c.Uri))
 
-	return client.Database(cfg.DatabaseName).Collection(cfg.CollectionName)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		c.Client = client
+	}
 }
 
-func (cfg *MongoConfig) Disconnect() {
-	client, err := cfg.client()
+func (c *MongoConfig) Collection() *mongo.Collection {
+	c.setConnection()
 
-	if err != nil {
-		log.Fatal("Error connecting to MongoDB:", err)
-	}
+	return c.Client.Database(c.DatabaseName).Collection(c.CollectionName)
+}
 
-	client.Disconnect(context.Background())
+func (c *MongoConfig) Disconnect() {
+	c.Client.Disconnect(context.Background())
 }

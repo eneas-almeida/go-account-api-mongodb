@@ -13,7 +13,7 @@ type AccountsRepository struct {
 	Connection *configs.MongoConfig
 }
 
-func (repo *AccountsRepository) Create(account *accounts.Account) (string, error) {
+func (r *AccountsRepository) Create(account *accounts.Account) (string, error) {
 	doc := bson.M{
 		"name":       account.Name,
 		"email":      account.Email,
@@ -22,13 +22,13 @@ func (repo *AccountsRepository) Create(account *accounts.Account) (string, error
 		"updated_at": account.UpdatedAt,
 	}
 
-	res, err := repo.Connection.Collection().InsertOne(context.Background(), doc)
-
-	repo.Connection.Disconnect()
+	res, err := r.Connection.Collection().InsertOne(context.Background(), doc)
 
 	if err != nil {
 		return "", err
 	}
+
+	// r.Connection.Disconnect()
 
 	id := res.InsertedID.(primitive.ObjectID).Hex()
 
