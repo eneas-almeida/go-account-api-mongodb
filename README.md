@@ -1,5 +1,9 @@
 # Go Account API MongoDB
 
+<p align="center">
+    <a href="https://github.com/venzel/golang"><img src="./media/images/golang.png" width="50px" /></a>
+</p>
+
 > **Account API** é um microserviço que utiliza um padrão arquitetural Clean Architecture.
 
 ## Stack
@@ -13,6 +17,10 @@
 -   Foi utilizado o mongodb como persistência de dados;
 
 `O que é o Fiber?`
+
+<p align="center">
+    <a href="https://docs.gofiber.io/"><img src="./media/images/fiber.png" /></a>
+</p>
 
 O Fiber é um framework web construído em Go, inspirado no Express.js do Node.js e é projetado para criar aplicativos web rápidos e eficientes em Go.
 
@@ -34,8 +42,10 @@ O Fiber é um framework web construído em Go, inspirado no Express.js do Node.j
 ## Padrão arquitetural (Clean Architecture)
 
 <p align="center">
-    <img src="./media/images/ca.png" />
+    <img src="./media/images/clean.svg" />
 </>
+
+**Imagem:** Otávio Lemos<br />
 
 A escolha do padrão **Clean Architecture** para um projeto de software pode trazer diversos benefícios, mas é importante ressaltar que a escolha de uma arquitetura depende muito das necessidades específicas do projeto, das características da equipe de desenvolvimento e das metas a serem alcançadas.
 
