@@ -10,7 +10,6 @@ import (
 )
 
 type AccountsRepository struct {
-	Connection *configs.MongoConfig
 }
 
 func (r *AccountsRepository) Create(account *accounts.Account) (string, error) {
@@ -22,13 +21,13 @@ func (r *AccountsRepository) Create(account *accounts.Account) (string, error) {
 		"updated_at": account.UpdatedAt,
 	}
 
-	res, err := r.Connection.Collection().InsertOne(context.Background(), doc)
+	collection := configs.GetDBCollection("accounts")
+
+	res, err := collection.InsertOne(context.Background(), doc)
 
 	if err != nil {
 		return "", err
 	}
-
-	// r.Connection.Disconnect()
 
 	id := res.InsertedID.(primitive.ObjectID).Hex()
 

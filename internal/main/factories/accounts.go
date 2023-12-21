@@ -7,11 +7,8 @@ import (
 )
 
 func MakeAccountsHandler() handlers.AccountsHandler {
-	repository := repositories.AccountsRepository{Connection: MakeMongoConnection()}
-
+	repository := repositories.AccountsRepository{}
 	usecases := accounts.AccountsUseCase{Repository: &repository}
-
 	handlers := handlers.AccountsHandler{UseCases: &usecases}
-
 	return handlers
 }

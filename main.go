@@ -15,6 +15,14 @@ import (
 )
 
 func main() {
+	err := configs.InitDB()
+
+	if err != nil {
+		log.Fatal("Error connecting to database:", err)
+	}
+
+	defer configs.CloseDB()
+
 	app := fiber.New()
 
 	app.Use(cors.New())
