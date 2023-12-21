@@ -7,6 +7,30 @@
 -   Golang;
 -   Docker (MongoDB);
 
+## Considerações iniciais
+
+-   Foi utilizado o <a href="https://docs.gofiber.io/">Fiber</a>;
+-   Foi utilizado o mongodb como persistência de dados;
+
+`O que é o Fiber?`
+
+O Fiber é um framework web construído em Go, inspirado no Express.js do Node.js e é projetado para criar aplicativos web rápidos e eficientes em Go.
+
+### Middlewares nativos do Fiber utilizado no projeto
+
+| Middlewares |                                                                                                             |
+| :---------- | :---------------------------------------------------------------------------------------------------------- |
+| Cors        | Fornece um conjunto de regras e cabeçalhos HTTP, para segurança da API.                                     |
+| Helmet      | Fornece um conjunto de middlewares para segurança da API.                                                   |
+| Logger      | Registra detalhes de solicitação/resposta HTTP.                                                             |
+| Recover     | Recupera o evento Panic em qualquer parte da aplicação e fornece controle centralizado para o ErrorHandler. |
+| Limiter     | Limita em um determinado espaço de tempo, a quantidade de solicitações HTTP para a API.                     |
+| RequestId   | Gera um id aleatório para cada requisição HTTP na aplicação, útil para o registro de transações.            |
+
+## Documentações
+
+-   [Fiber](https://docs.gofiber.io/)
+
 ## Padrão arquitetural (Clean Architecture)
 
 <p align="center">

@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"mongoapi/internal/domain/accounts"
 
 	"github.com/gofiber/fiber/v2"
@@ -12,6 +13,10 @@ type AccountsHandler struct {
 }
 
 func (h *AccountsHandler) Create(ctx *fiber.Ctx) error {
+	requestID := ctx.Locals("requestid").(string)
+
+	fmt.Println(requestID)
+
 	body := []byte(ctx.Body())
 
 	var dto accounts.InputAccountDto
