@@ -2,8 +2,8 @@ package repositories
 
 import (
 	"context"
-	"mongoapi/internal/domain/accounts"
-	"mongoapi/internal/main/configs"
+	"mongoapi/src/domain/accounts"
+	"mongoapi/src/main/configs"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

@@ -2,7 +2,7 @@ package accounts
 
 import (
 	"errors"
-	"mongoapi/internal/domain/shared"
+	"mongoapi/src/domain/shared"
 	"time"
 
 	"github.com/google/uuid"

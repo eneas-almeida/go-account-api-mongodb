@@ -1,9 +1,9 @@
 package factories
 
 import (
-	"mongoapi/internal/application/usecases/accounts"
-	"mongoapi/internal/infra/database/repositories"
-	"mongoapi/internal/presentation/handlers"
+	"mongoapi/src/application/usecases/accounts"
+	"mongoapi/src/infra/database/repositories"
+	"mongoapi/src/presentation/handlers"
 )
 
 func MakeAccountsHandler() handlers.AccountsHandler {

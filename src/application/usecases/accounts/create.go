@@ -1,6 +1,6 @@
 package accounts
 
-import "mongoapi/internal/domain/accounts"
+import "mongoapi/src/domain/accounts"
 
 func (u *AccountsUseCase) Create(d *accounts.InputAccountDto) (*accounts.OutputAccountDto, error) {
 	account, err := accounts.NewAccount(d.Name, d.Email, d.Password)

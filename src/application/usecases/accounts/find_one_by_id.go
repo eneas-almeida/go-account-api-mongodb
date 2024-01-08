@@ -1,7 +1,7 @@
 package accounts
 
 import (
-	"mongoapi/internal/domain/accounts"
+	"mongoapi/src/domain/accounts"
 )
 
 func (u *AccountsUseCase) FindOneById(id string) (*accounts.OutputAccountDto, error) {

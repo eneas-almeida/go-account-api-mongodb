@@ -3,7 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"mongoapi/internal/domain/accounts"
+	"mongoapi/src/domain/accounts"
 
 	"github.com/gofiber/fiber/v2"
 )

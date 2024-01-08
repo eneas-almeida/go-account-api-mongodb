@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"mongoapi/internal/main/configs"
-	"mongoapi/internal/main/routes"
+	"mongoapi/src/main/configs"
+	"mongoapi/src/main/routes"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"

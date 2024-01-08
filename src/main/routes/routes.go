@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"mongoapi/internal/main/factories"
+	"mongoapi/src/main/factories"
 
 	"github.com/gofiber/fiber/v2"
 )
